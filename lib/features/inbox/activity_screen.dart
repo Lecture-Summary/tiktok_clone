@@ -46,7 +46,7 @@ class _ActivityScreenState extends State<ActivityScreen>
   late final AnimationController _animationController = AnimationController(
     vsync: this,
     duration: const Duration(
-      milliseconds: 200,
+      milliseconds: 400,
     ),
   );
 
@@ -88,6 +88,7 @@ class _ActivityScreenState extends State<ActivityScreen>
         title: GestureDetector(
           onTap: _toggleAnimations,
           child: Row(
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text('All activity'),
