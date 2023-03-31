@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -10,31 +9,25 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Settings'),
       ),
-      body: Column(
-        children: const [
-          CupertinoActivityIndicator(
-            radius: 40,
+      body: ListView(
+        children: [
+          ListTile(
+            onTap: () => showAboutDialog(
+              context: context,
+              applicationVersion: "1.0",
+              applicationLegalese: "All rights reserved. Please dont copy me.",
+            ),
+            title: const Text(
+              'About',
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            subtitle: const Text('About this app.....'),
           ),
-          CircularProgressIndicator(),
-          CircularProgressIndicator.adaptive(),
+          const AboutListTile(),
         ],
       ),
-      // ListWheelScrollView(
-      //   diameterRatio: 1.5,
-      //   offAxisFraction: 2,
-      //   itemExtent: 200,
-      //   children: [
-      //     for (var x in [1, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1])
-      //       FractionallySizedBox(
-      //         widthFactor: 1,
-      //         child: Container(
-      //           color: Colors.teal,
-      //           alignment: Alignment.center,
-      //           child: const Text('Pick me'),
-      //         ),
-      //       ),
-      //   ],
-      // ),
     );
   }
 }
